@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         toolbar.getMenu().clear();
         //toolbar.inflateMenu(R.menu.delete_menu);
 
-        txtToolbar = (TextView)findViewById(R.id.txtToolbar);
-        placeHolder = (LinearLayout)findViewById(R.id.placeHolder);
+        txtToolbar = (TextView)findViewById(R.id.text_toolbar);
+        placeHolder = (LinearLayout)findViewById(R.id.place_holder);
 
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
 

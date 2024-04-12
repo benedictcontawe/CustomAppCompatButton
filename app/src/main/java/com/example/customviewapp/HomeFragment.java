@@ -68,7 +68,6 @@ public class HomeFragment extends BaseFragment {
         } else {
             return super.onOptionsItemSelected(item);
         }
-
     }
 
     @Override
