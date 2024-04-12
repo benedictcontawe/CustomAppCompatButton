@@ -32,12 +32,15 @@ android {
 }
 
 dependencies {
-
+    //region Android Library
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    //endregion
+    //region Android Unit Test and U.I. Test Library
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    //endregion
 }
