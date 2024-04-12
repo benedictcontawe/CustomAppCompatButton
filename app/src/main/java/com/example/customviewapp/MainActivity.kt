@@ -13,8 +13,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import com.example.customviewapp.databinding.MainBinder
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 
-class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
 
     companion object {
         private val TAG = MainActivity::class.java.getSimpleName()
