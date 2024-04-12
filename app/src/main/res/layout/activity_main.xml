@@ -64,7 +64,7 @@
         android:id="@+id/include"
         layout="@layout/toolbar" />
 
-    <FrameLayout
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frameLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
