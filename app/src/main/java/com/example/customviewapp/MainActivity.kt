@@ -84,31 +84,31 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
     override fun onNavigationItemSelected(menu : MenuItem): Boolean {
         return if (menu.getItemId() == R.id.home) {
             Log.d(TAG, "onNavigationItemSelected home")
-            supportFragmentManager.beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayout, HomeFragment())
                 .commitNow()
             true
         } else if (menu.getItemId() == R.id.search) {
             Log.d(TAG, "onNavigationItemSelected search")
-            supportFragmentManager.beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayout, SearchFragment())
                 .commitNow()
             true
         } else if (menu.getItemId() == R.id.edit) {
             Log.d(TAG, "onNavigationItemSelected edit")
-            supportFragmentManager.beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayout, EditFragment())
                 .commitNow()
             true
         } else if (menu.getItemId() == R.id.delete) {
             Log.d(TAG, "onNavigationItemSelected delete")
-            supportFragmentManager.beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayout, DeleteFragment())
                 .commitNow()
             true
         } else if (menu.getItemId() == R.id.utilities) {
             Log.d(TAG, "onNavigationItemSelected utilities")
-            supportFragmentManager.beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameLayout, UtilitiesFragment())
                 .commitNow()
             true
