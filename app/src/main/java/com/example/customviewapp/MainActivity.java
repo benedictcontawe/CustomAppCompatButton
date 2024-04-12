@@ -19,7 +19,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnItemSelectedListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private MainViewModel mainViewModel;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setOnItemSelectedListener(this);
     }
 
     @Override
