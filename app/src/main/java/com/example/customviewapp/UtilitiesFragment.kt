@@ -1,52 +1,49 @@
-package com.example.customviewapp;
+package com.example.customviewapp
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.databinding.DataBindingUtil
+import com.example.customviewapp.databinding.DeleteBinder
+import com.example.customviewapp.databinding.UtilitiesBinder
 
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
+class UtilitiesFragment : BaseFragment {
 
-import org.jetbrains.annotations.NotNull;
+    companion object {
+        private val TAG = UtilitiesFragment::class.java.getSimpleName()
+    }
 
-public class UtilitiesFragment extends BaseFragment {
+    constructor() {
 
-    private static final String TAG = UtilitiesFragment.class.getSimpleName();
+    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+    private var binder : UtilitiesBinder? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
         setTitle(null);
         setIcon(null);
         resetToolBarState();
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d(TAG,"onCreateView()");
-        return inflater.inflate(R.layout.fragment_utilities, container, false);
+    override fun onCreateView(inflater : LayoutInflater, container : ViewGroup?, savedInstanceState : Bundle?) : View? {
+        binder = DataBindingUtil.inflate(inflater, R.layout.fragment_utilities,container,false)
+        return binder?.getRoot()
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        Log.d(TAG,"onActivityCreated()");
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(@NotNull Menu menu, MenuInflater inflater) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         Log.d(TAG,"onCreateOptionsMenu()");
         inflater.inflate(R.menu.utilities_menu, menu);
         setNavigationIcon(R.drawable.ic_arrow_back);
-        setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        setNavigationOnClickListener(object : View.OnClickListener {
+            override fun onClick(view : View?) {
                 setPlaceHolderVisibility(View.VISIBLE);
                 reCreateOptionsMenu();
             }
@@ -54,9 +51,8 @@ public class UtilitiesFragment extends BaseFragment {
         super.onCreateOptionsMenu(menu,inflater);
     }
 
-    @Override
-    public void onPrepareOptionsMenu(@NonNull Menu menu) {
-        if (mainViewModel.getUtilityIndicator()) {
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        if (mainViewModel.utilitiyIndicator == true) {
             menu.findItem(R.id.on_off_menu).setEnabled(true);
             menu.findItem(R.id.off_menu).setEnabled(true);
             menu.findItem(R.id.on_menu).setEnabled(false);
@@ -71,21 +67,20 @@ public class UtilitiesFragment extends BaseFragment {
         super.onPrepareOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.getItemId() == R.id.on_menu) {
             Log.d(TAG, "On Menu selected");
-            mainViewModel.setUtilitiyIndicator(true);
+            mainViewModel.utilitiyIndicator = true
             reCreateOptionsMenu();
             return true;
         } else if (item.getItemId() == R.id.off_menu) {
             Log.d(TAG, "Off Menu selected");
-            mainViewModel.setUtilitiyIndicator(false);
+            mainViewModel.utilitiyIndicator = false
             reCreateOptionsMenu();
             return true;
         } else if (item.getItemId() == R.id.exit_menu) {
             Log.d(TAG, "Exit Menu selected");
-            ActivityCompat.finishAffinity(getMainActivity());
+            ActivityCompat.finishAffinity(requireActivity());
             Toast.makeText(getContext(), "Exit Menu selected", Toast.LENGTH_SHORT).show();
             System.exit(0);
             return true;
@@ -94,9 +89,8 @@ public class UtilitiesFragment extends BaseFragment {
         }
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        setPlaceHolderVisibility(View.GONE);
+    override fun onPause() {
+        super.onPause()
+        setPlaceHolderVisibility(View.GONE)
     }
 }
