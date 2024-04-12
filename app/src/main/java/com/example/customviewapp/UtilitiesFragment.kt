@@ -9,9 +9,16 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
-import com.example.customviewapp.databinding.DeleteBinder
 import com.example.customviewapp.databinding.UtilitiesBinder
 
 class UtilitiesFragment : BaseFragment {
@@ -35,6 +42,14 @@ class UtilitiesFragment : BaseFragment {
 
     override fun onCreateView(inflater : LayoutInflater, container : ViewGroup?, savedInstanceState : Bundle?) : View? {
         binder = DataBindingUtil.inflate(inflater, R.layout.fragment_utilities,container,false)
+        binder?.composeView?.setContent(content = {
+            Box (
+                modifier = Modifier.fillMaxSize().border(2.dp, Color.Black),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(text = "Hello Compose View!")
+            }
+        })
         return binder?.getRoot()
     }
 

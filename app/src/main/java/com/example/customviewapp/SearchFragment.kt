@@ -12,6 +12,18 @@ import android.view.inputmethod.EditorInfo
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.SearchView.OnCloseListener
 import android.widget.Toast
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.unit.dp
 
 class SearchFragment : BaseFragment() {
 
@@ -28,7 +40,20 @@ class SearchFragment : BaseFragment() {
 
     override fun onCreateView(inflater : LayoutInflater, container : ViewGroup?, savedInstanceState : Bundle?) : View? {
         Log.d(TAG, "onCreateView()")
-        return inflater.inflate(R.layout.fragment_search, container, false)
+        //return inflater.inflate(R.layout.fragment_search, container, false)
+        return ComposeView(requireContext()).apply {
+            setContent(content = {
+                Column (
+                    modifier = Modifier.fillMaxSize().border(1.dp, Color.Black),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                    content = {
+                        Text(text = "Search Fragment")
+                        Text(text = "Compose View")
+                    }
+                )
+            })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
