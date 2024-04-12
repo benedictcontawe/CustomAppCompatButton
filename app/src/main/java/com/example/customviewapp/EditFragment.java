@@ -22,7 +22,7 @@ public class EditFragment extends BaseFragment implements View.OnClickListener {
 
     private ClipboardManager clipboard;
     private ClipData clip;
-    private Button btnCopy, btnPaste;
+    private Button buttonCopy, btnPaste;
     private EditText editTextCopy;
     private TextView textViewPaste;
 
@@ -38,12 +38,12 @@ public class EditFragment extends BaseFragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d(TAG,"onCreateView()");
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
-        btnCopy = (Button) view.findViewById(R.id.btnCopy);
-        btnPaste = (Button) view.findViewById(R.id.btnPaste);
-        editTextCopy = (EditText) view.findViewById(R.id.edtCopy);
-        textViewPaste = (TextView) view.findViewById(R.id.txtPaste);
+        buttonCopy = (Button) view.findViewById(R.id.button_copy);
+        btnPaste = (Button) view.findViewById(R.id.button_paste);
+        editTextCopy = (EditText) view.findViewById(R.id.edit_copy);
+        textViewPaste = (TextView) view.findViewById(R.id.text_paste);
 
-        btnCopy.setOnClickListener(this);
+        buttonCopy.setOnClickListener(this);
         btnPaste.setOnClickListener(this);
         return view;
     }
@@ -63,14 +63,14 @@ public class EditFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.btnCopy) {
-            Log.d(TAG,"onClick btnCopy");
+        if (view.getId() == R.id.button_copy) {
+            Log.d(TAG,"onClick button_copy");
             String textToCopy = editTextCopy.getText().toString();
             clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
             clip = ClipData.newPlainText(null, textToCopy);
             if (clipboard == null) return;
             clipboard.setPrimaryClip(clip);
-        } else if (view.getId() == R.id.btnPaste) {
+        } else if (view.getId() == R.id.button_paste) {
             Log.d(TAG,"onClick btnPaste");
             clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
             if (clipboard == null) return;

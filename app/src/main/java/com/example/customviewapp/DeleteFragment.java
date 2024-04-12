@@ -23,7 +23,7 @@ public class DeleteFragment extends BaseFragment implements OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Delete Fragment");
+        setTitle(TAG);
         setIcon(null);
     }
 
@@ -31,8 +31,8 @@ public class DeleteFragment extends BaseFragment implements OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d(TAG,"onCreateView()");
         View view = inflater.inflate(R.layout.fragment_delete, container, false);
-        btnIncrease = (Button)view.findViewById(R.id.btnIncrease);
-        btnDecrease = (Button)view.findViewById(R.id.btnDecrease);
+        btnIncrease = (Button)view.findViewById(R.id.button_increase);
+        btnDecrease = (Button)view.findViewById(R.id.button_decrease);
 
         btnIncrease.setOnClickListener(this);
         btnDecrease.setOnClickListener(this);
@@ -103,12 +103,12 @@ public class DeleteFragment extends BaseFragment implements OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.btnIncrease) {
+        if (view.getId() == R.id.button_increase) {
             Log.d(TAG,"onClick btnIncrease");
             mainViewModel.incrementCounter();
             setIcons();
             setToolbarText(mainViewModel.getCounterString());
-        } else if (view.getId() == R.id.btnDecrease) {
+        } else if (view.getId() == R.id.button_decrease) {
             Log.d(TAG,"onClick btnDecrease");
             mainViewModel.decrementCounter();
             setIcons();

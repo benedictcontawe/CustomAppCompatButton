@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Main Activity");
+        toolbar.setTitle(TAG);
         //toolbar.setNavigationIcon();
         //toolbar.setNavigationOnClickListener();
         toolbar.getMenu().clear();

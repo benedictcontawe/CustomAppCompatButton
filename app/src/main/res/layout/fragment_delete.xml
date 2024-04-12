@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
-        android:id="@+id/btnIncrease"
+        android:id="@+id/button_increase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Increase"
@@ -28,7 +28,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
-        android:id="@+id/btnDecrease"
+        android:id="@+id/button_decrease"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Decrease"
