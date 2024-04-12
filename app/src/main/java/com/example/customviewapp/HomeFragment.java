@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import org.jetbrains.annotations.NotNull;
 
 public class HomeFragment extends BaseFragment {
@@ -39,35 +40,35 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.item1:
-                Log.d(TAG,"Item 1 selected");
-                Toast.makeText(getContext(), "Item 1 selected", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.item2:
-                Log.d(TAG,"Item 2 selected");
-                Toast.makeText(getContext(), "Item 2 selected", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.item3:
-                Log.d(TAG,"Item 3 selected");
-                Toast.makeText(getContext(), "Item 3 selected", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.subitem1:
-                Log.d(TAG,"Sub Item 1 selected");
-                Toast.makeText(getContext(), "Sub Item 1 selected", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.subitem2:
-                Log.d(TAG,"Sub Item 2 selected");
-                Toast.makeText(getContext(), "Sub Item 2 selected", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.subitem3:
-                Log.d(TAG,"Sub Item 3 selected (Options Menu Disabled)");
-                Toast.makeText(getContext(), "Sub Item 3 selected (Options Menu Disabled)", Toast.LENGTH_SHORT).show();
-                disableOptionsMenu();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.item1) {
+            Log.d(TAG, "Item 1 selected");
+            Toast.makeText(getContext(), "Item 1 selected", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (item.getItemId() == R.id.item2) {
+            Log.d(TAG, "Item 2 selected");
+            Toast.makeText(getContext(), "Item 2 selected", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (item.getItemId() == R.id.item3) {
+            Log.d(TAG, "Item 3 selected");
+            Toast.makeText(getContext(), "Item 3 selected", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (item.getItemId() == R.id.subitem1) {
+            Log.d(TAG, "Sub Item 1 selected");
+            Toast.makeText(getContext(), "Sub Item 1 selected", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (item.getItemId() == R.id.subitem2) {
+            Log.d(TAG, "Sub Item 2 selected");
+            Toast.makeText(getContext(), "Sub Item 2 selected", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (item.getItemId() == R.id.subitem3) {
+            Log.d(TAG, "Sub Item 3 selected (Options Menu Disabled)");
+            Toast.makeText(getContext(), "Sub Item 3 selected (Options Menu Disabled)", Toast.LENGTH_SHORT).show();
+            disableOptionsMenu();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
+
     }
 
     @Override

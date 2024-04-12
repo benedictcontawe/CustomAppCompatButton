@@ -7,10 +7,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.*;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
 import org.jetbrains.annotations.NotNull;
 
 public class DeleteFragment extends BaseFragment implements OnClickListener {
@@ -67,28 +68,27 @@ public class DeleteFragment extends BaseFragment implements OnClickListener {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_delete:
-                Log.d(TAG,"onClick action_delete");
-                btnIncrease.setVisibility(View.VISIBLE);
-                btnDecrease.setVisibility(View.VISIBLE);
-                mainViewModel.setCounter(0);
-                reCreateOptionsMenu();
-                setToolbarVisibility(View.VISIBLE);
-                setToolbarText(mainViewModel.getCounterString());
-                return true;
-            case R.id.delete_selected:
-                Log.d(TAG,"onClick delete_selected");
-                Toast.makeText(getContext(), "Delete Selected " + mainViewModel.getCounterString(), Toast.LENGTH_SHORT).show();
-                resetToolBarState();
-                return true;
-            case R.id.delete_all:
-                Log.d(TAG,"onClick delete_all");
+        if (item.getItemId() == R.id.action_delete) {
+            Log.d(TAG,"onClick action_delete");
+            btnIncrease.setVisibility(View.VISIBLE);
+            btnDecrease.setVisibility(View.VISIBLE);
+            mainViewModel.setCounter(0);
+            reCreateOptionsMenu();
+            setToolbarVisibility(View.VISIBLE);
+            setToolbarText(mainViewModel.getCounterString());
+            return true;
+        } else if (item.getItemId() == R.id.delete_selected) {
+            Log.d(TAG,"onClick delete_selected");
+            Toast.makeText(getContext(), "Delete Selected " + mainViewModel.getCounterString(), Toast.LENGTH_SHORT).show();
+            resetToolBarState();
+            return true;
+        } else if (item.getItemId() == R.id.delete_all) {
+            Log.d(TAG,"onClick delete_all");
                 Toast.makeText(getContext(), "Delete All", Toast.LENGTH_SHORT).show();
                 resetToolBarState();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 
@@ -103,22 +103,18 @@ public class DeleteFragment extends BaseFragment implements OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btnIncrease:
-                Log.d(TAG,"onClick btnIncrease");
-                mainViewModel.incrementCounter();
-                setIcons();
-                setToolbarText(mainViewModel.getCounterString());
-                break;
-            case R.id.btnDecrease:
-                Log.d(TAG,"onClick btnDecrease");
-                mainViewModel.decrementCounter();
-                setIcons();
-                setToolbarText(mainViewModel.getCounterString());
-                break;
-            default:
-                Log.d(TAG,"onClick default");
-                break;
+        if (view.getId() == R.id.btnIncrease) {
+            Log.d(TAG,"onClick btnIncrease");
+            mainViewModel.incrementCounter();
+            setIcons();
+            setToolbarText(mainViewModel.getCounterString());
+        } else if (view.getId() == R.id.btnDecrease) {
+            Log.d(TAG,"onClick btnDecrease");
+            mainViewModel.decrementCounter();
+            setIcons();
+            setToolbarText(mainViewModel.getCounterString());
+        } else {
+            Log.d(TAG,"onClick default");
         }
     }
 

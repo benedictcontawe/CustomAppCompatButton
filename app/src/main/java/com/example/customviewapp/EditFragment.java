@@ -1,9 +1,9 @@
 package com.example.customviewapp;
 
-import android.os.Bundle;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -63,30 +63,26 @@ public class EditFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btnCopy:
-                Log.d(TAG,"onClick btnCopy");
-                String textToCopy = editTextCopy.getText().toString();
-                clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-                clip = ClipData.newPlainText(null, textToCopy);
-                if (clipboard == null) return;
-                clipboard.setPrimaryClip(clip);
-                break;
-            case R.id.btnPaste:
-                Log.d(TAG,"onClick btnPaste");
-                clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-                if (clipboard == null) return;
-                clip = clipboard.getPrimaryClip();
-                if (clip == null) return;
-                ClipData.Item item = clip.getItemAt(0);
-                if (item == null) return;
-                CharSequence textToPaste = item.getText();
-                if (textToPaste == null) return;
-                else textViewPaste.setText(textToPaste);
-                break;
-            default:
-                Log.d(TAG,"onClick default");
-                break;
+        if (view.getId() == R.id.btnCopy) {
+            Log.d(TAG,"onClick btnCopy");
+            String textToCopy = editTextCopy.getText().toString();
+            clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            clip = ClipData.newPlainText(null, textToCopy);
+            if (clipboard == null) return;
+            clipboard.setPrimaryClip(clip);
+        } else if (view.getId() == R.id.btnPaste) {
+            Log.d(TAG,"onClick btnPaste");
+            clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            if (clipboard == null) return;
+            clip = clipboard.getPrimaryClip();
+            if (clip == null) return;
+            ClipData.Item item = clip.getItemAt(0);
+            if (item == null) return;
+            CharSequence textToPaste = item.getText();
+            if (textToPaste == null) return;
+            else textViewPaste.setText(textToPaste);
+        } else {
+            Log.d(TAG,"onClick default");
         }
     }
 }

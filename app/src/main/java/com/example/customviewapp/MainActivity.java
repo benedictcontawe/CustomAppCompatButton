@@ -8,9 +8,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -89,36 +93,40 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.home: Log.d(TAG,"onNavigationItemSelected home");
-                getSupportFragmentManager().beginTransaction()
+        if (item.getItemId() == R.id.home) {
+            Log.d(TAG,"onNavigationItemSelected home");
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.frameLayout,new HomeFragment())
                     .commitNow();
-                return true;
-            case R.id.search: Log.d(TAG,"onNavigationItemSelected search");
-                getSupportFragmentManager().beginTransaction()
+            return true;
+        } else if (item.getItemId() == R.id.search) {
+            Log.d(TAG,"onNavigationItemSelected search");
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.frameLayout,new SearchFragment())
                     .commitNow();
-                return true;
-            case R.id.edit: Log.d(TAG,"onNavigationItemSelected edit");
-                getSupportFragmentManager().beginTransaction()
+            return true;
+        } else if (item.getItemId() == R.id.edit) {
+            Log.d(TAG,"onNavigationItemSelected edit");
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.frameLayout,new EditFragment())
                     .commitNow();
-                return true;
-            case R.id.delete: Log.d(TAG,"onNavigationItemSelected delete");
-                getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frameLayout,new DeleteFragment())
+            return true;
+        } else if (item.getItemId() == R.id.delete) {
+            Log.d(TAG,"onNavigationItemSelected delete");
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frameLayout,new DeleteFragment())
                     .commitNow();
-                return true;
-            case R.id.utilities: Log.d(TAG,"onNavigationItemSelected utilities");
-                getSupportFragmentManager().beginTransaction()
+            return true;
+        } else if (item.getItemId() == R.id.utilities) {
+            Log.d(TAG,"onNavigationItemSelected utilities");
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.frameLayout,new UtilitiesFragment())
                     .commitNow();
-                return true;
-            default:
-                Log.d(TAG,"onNavigationItemSelected default");
-                Toast.makeText(this, "Default", Toast.LENGTH_SHORT).show();
-                return false;
+            return true;
+        } else {
+            Log.d(TAG,"onNavigationItemSelected default");
+            Toast.makeText(this, "Default", Toast.LENGTH_SHORT).show();
+            return false;
         }
     }
 

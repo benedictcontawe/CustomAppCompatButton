@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Toast;
+
 import androidx.appcompat.widget.SearchView;
+
 import org.jetbrains.annotations.NotNull;
 
 public class SearchFragment extends BaseFragment {
@@ -78,13 +80,12 @@ public class SearchFragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_search:
-                Log.d(TAG,"Search View selected");
-                Toast.makeText(getContext(), "Search View selected", Toast.LENGTH_SHORT).show();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.action_search) {
+            Log.d(TAG, "Search View selected");
+            Toast.makeText(getContext(), "Search View selected", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 }

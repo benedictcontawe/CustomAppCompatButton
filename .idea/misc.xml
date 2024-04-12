@@ -1,42 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2065" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/bottom_navigation_color.xml" value="0.143" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/bottom_navigation_text_color.xml" value="0.143" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/delete_selector.xml" value="0.143" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/edit_selector.xml" value="0.209" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/home_selector.xml" value="0.143" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/horizontal_bottom_gradient_black_to_transparent.xml" value="0.2065" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/ic_calendar_white.xml" value="0.2065" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/ic_clear.xml" value="0.143" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/ic_close_white.xml" value="0.2065" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/ic_delete_pressed.xml" value="0.143" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/ic_delete_selected.xml" value="0.143" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/ic_edit_unpressed.xml" value="0.143" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/ic_home.xml" value="0.128" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/ic_home_unpressed.xml" value="0.143" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2065" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/drawable/ic_search_pressed.xml" value="0.143" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/layout-v21/toolbar.xml" value="0.24114583333333334" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/layout/layout_calendar.xml" value="0.16621376811594202" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/layout/row_recycler_view_calendar.xml" value="0.2421875" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/layout/sample_layout.xml" value="0.136" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/layout/toolbar.xml" value="0.2" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.264" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/menu/delete_counter_menu.xml" value="0.2421875" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/menu/delete_menu.xml" value="0.2421875" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/menu/home_menu.xml" value="0.2421875" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/menu/search_menu.xml" value="0.2" />
-        <entry key="..\:/Benedict/Android Studio Projects/CustomViewApp/app/src/main/res/menu/utilities_menu.xml" value="0.2421875" />
-      </map>
-    </option>
-  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
   </component>
 </project>

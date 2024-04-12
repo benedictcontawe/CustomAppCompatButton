@@ -9,8 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+
 import org.jetbrains.annotations.NotNull;
 
 public class UtilitiesFragment extends BaseFragment {
@@ -71,25 +73,24 @@ public class UtilitiesFragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.on_menu:
-                Log.d(TAG,"On Menu selected");
-                mainViewModel.setUtilitiyIndicator(true);
-                reCreateOptionsMenu();
-                return true;
-            case R.id.off_menu:
-                Log.d(TAG,"Off Menu selected");
-                mainViewModel.setUtilitiyIndicator(false);
-                reCreateOptionsMenu();
-                return true;
-            case R.id.exit_menu:
-                Log.d(TAG,"Exit Menu selected");
-                ActivityCompat.finishAffinity(getMainActivity());
-                Toast.makeText(getContext(), "Exit Menu selected", Toast.LENGTH_SHORT).show();
-                System.exit(0);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.on_menu) {
+            Log.d(TAG, "On Menu selected");
+            mainViewModel.setUtilitiyIndicator(true);
+            reCreateOptionsMenu();
+            return true;
+        } else if (item.getItemId() == R.id.off_menu) {
+            Log.d(TAG, "Off Menu selected");
+            mainViewModel.setUtilitiyIndicator(false);
+            reCreateOptionsMenu();
+            return true;
+        } else if (item.getItemId() == R.id.exit_menu) {
+            Log.d(TAG, "Exit Menu selected");
+            ActivityCompat.finishAffinity(getMainActivity());
+            Toast.makeText(getContext(), "Exit Menu selected", Toast.LENGTH_SHORT).show();
+            System.exit(0);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 
